@@ -30,13 +30,17 @@ if TYPE_CHECKING:
     from langchain.schema.runnable import Runnable
 
 logger = logging.getLogger(__name__)
-_PARENT_RUN_TREE = contextvars.ContextVar[Optional[run_trees.RunTree]](
-    "_PARENT_RUN_TREE", default=None
-)
-_PROJECT_NAME = contextvars.ContextVar[Optional[str]]("_PROJECT_NAME", default=None)
-_TAGS = contextvars.ContextVar[Optional[List[str]]]("_TAGS", default=None)
-_METADATA = contextvars.ContextVar[Optional[Dict[str, Any]]]("_METADATA", default=None)
+# _PARENT_RUN_TREE = contextvars.ContextVar[Optional[run_trees.RunTree]](
+#     "_PARENT_RUN_TREE", default=None
+# )
+# _PROJECT_NAME = contextvars.ContextVar[Optional[str]]("_PROJECT_NAME", default=None)
+# _TAGS = contextvars.ContextVar[Optional[List[str]]]("_TAGS", default=None)
+# _METADATA = contextvars.ContextVar[Optional[Dict[str, Any]]]("_METADATA", default=None)
 
+_PARENT_RUN_TREE = None
+_PROJECT_NAME = None
+_TAGS = None
+_METADATA = None
 
 def get_run_tree_context() -> Optional[run_trees.RunTree]:
     """Get the current run tree context."""
